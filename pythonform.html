@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lab 6</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<style>
+
+body {
+  background: rgb(198, 168, 168);
+	font: 75% georgia, sans-serif;
+
+	color: black;
+	margin: 0;
+	padding: 0;
+  }
+
+  h1 {
+  font: 120% georgia, sans-serif;
+	letter-spacing: 1px;
+	margin-bottom: 0;
+  color: #7D775C;
+
+  }
+
+  p {
+  color: rgb(85, 61, 16);
+	margin-top: 0;
+	text-align: justify;
+	font-family: 'Actor';font-size: 15px;
+	}
+
+
+
+</style>
+</head>
+<body>
+
+<h1>Information Form</h1>
+<p> Please fill out all fields in the form.<br>
+Enter your first name, last name, address and phone number.</p>
+
+<script type="text/javascript">
+  function checker() {
+    var first = document.info.first;
+    var last = document.info.last;
+    var phone = document.info.phone;
+    var valName = new RegExp(/^[a-zA-Z]+$/);
+    var valPhone = new RegExp(/^[0-9]{3}[-]{1}[0-9]{3}[-]{1}[0-9]{4}$/);
+  
+    if (!valName.test(first.value)) {
+      alert("Only letters in name!");
+      first.focus();
+      return false;
+    }
+    else if (!valName.test(last.value)) {
+      alert("Only letters in name");
+      last.focus();
+      return false;
+    }
+    else if (!valPhone.test(phone.value)) {
+      alert("Verify the number is in this format: 416-555-5555");
+      phone.focus();
+      return false;
+    }
+  }
+  
+  </script>
+
+<form name="info" onsubmit="return(checker())" method="post">
+First Name: <input type="text" required name="first" placeholder="Kanye">
+<br><br><br>
+Last Name: <input type="text" required name="last" placeholder="West">
+<br><br><br>
+Address: <input type="text" required name="address" placeholder=" 88 Circle Street">
+<br><br><br>
+Phone Number: <input type="text" required name="phone" placeholder="905-990-9595">
+<br><br><br>
+<input class="popup button" type="submit" formaction="../cgi-bin/rubyform.cgi" value="Submit Info Ruby">
+<br><br><br>
+<input class="popup button" type="submit" formaction="../cgi-bin/python.cgi" value="Submit Info Python">
+<br><br><br>
+</form>
+
+
+
+
+</body>
+
+
+
+</html>
